@@ -33,13 +33,13 @@ def readList():
     return wordlist
 
 wordlist=readList()
-def guess(currentAttemp,maxAttempts,secretWord,wordlist):
-    while(currentAttemp<maxAttempts):
+def guess(currentAttempt,maxAttempts,secretWord,wordlist):
+    while(currentAttempt<maxAttempts):
         word=input("Enter word guess:")
         while(len(word)!=5 or word.upper() not in wordlist):
             print("Wrong input, try again:")
             word = input("Enter word guess:")
-        currentAttemp+=1
+        currentAttempt+=1
         notify="_____"
         for index in range(len(secretWord)):
             if(secretWord[index]==word[index].upper()):
@@ -57,7 +57,7 @@ def guess(currentAttemp,maxAttempts,secretWord,wordlist):
 
         print(notify)
         if(word.upper()==secretWord):
-            print("Congratulations, you found it in",currentAttemp,"attempt!"if currentAttemp==1 else "attempts!")
+            print("Congratulations, you found it in",currentAttempt,"attempt!"if currentAttempt==1 else "attempts!")
             return
 
 secretWord=generateWord()
